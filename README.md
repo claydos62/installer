@@ -5,9 +5,11 @@ This repo contains the installer prototype for FlyByWire Simulations' projects.
 
 ## Build dependencies
 
-Please make sure you have WebView 2 installed - [Download](https://developer.microsoft.com/en-us/microsoft-edge/webview2/#download-section)
-
-You will also need the tauri bundler for making the exes which can be installed with 
+Please make sure you have: 
+- Rust - [Homepage](https://www.rust-lang.org/)
+- NodeJS 14 - [Homepage](https://nodejs.org/en/)
+- WebView 2 installed - [Download](https://developer.microsoft.com/en-us/microsoft-edge/webview2/#download-section)
+- tauri bundler 
 ```powershell
 cargo install tauri-bundler
 ```
