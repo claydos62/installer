@@ -1,24 +1,21 @@
 import React from 'react';
+import * as tauri from 'tauri/api/tauri'
+
 import './App.scss';
 
 import logo from './FBW-Tail.svg';
 
-import * as tauri from 'tauri/api/tauri'
+type MainContentProps = {
+    page: string,
+}
 
 function App() {
-
-    function onButton() {
-        tauri.invoke({ cmd: 'downloadA32NX'});
-    }
-
     return (
         <div className="App">
             <Logo />
             <TopBar />
             <SideBar />
-            <div id="main-content">
-                <button onClick={onButton}>Download a32nx!</button>
-            </div>
+            <MainContent page="home" />
         </div>
     );
 }
@@ -45,6 +42,26 @@ function SideBar() {
             <p>icon1</p>
             <p>icon2</p>
         </div>
+    )
+}
+
+function MainContent(props: MainContentProps) {
+    function onButton() {
+        tauri.invoke({ cmd: 'downloadA32NX'});
+    }
+
+    switch(props.page) {
+        case "home": {
+            return (
+                <div id="main-content">
+                    <button onClick={onButton}>Download a32nx!</button>
+                </div>
+            )
+        }
+    }
+
+    return (
+        <div />
     )
 }
 
