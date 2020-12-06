@@ -110,6 +110,13 @@ fn main() {
                                                 println!("{:?}", dir);
 
                                                 if dir.exists() {
+                                                    let mut orig_a32nx = path::PathBuf::from(&dir);
+                                                    orig_a32nx.push("A32NX");
+
+                                                    if orig_a32nx.exists() {
+                                                        fs::remove_dir_all(orig_a32nx);
+                                                    }
+
                                                     let resp = reqwest::blocking::get("https://flybywiresim-packages.nyc3.cdn.digitaloceanspaces.com/vmaster/A32NX-master.zip").unwrap();
 
                                                     let mut file = fs::File::create("a32nx-temp.zip").unwrap();
